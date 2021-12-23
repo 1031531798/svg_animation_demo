@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Nixie+One|Raleway:200');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Nixie One', cursive;
+}
+.nav-box{
+  width: 300px;
+  padding: 10px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.meter:nth-child(1) .svg-circle { stroke: #AAFF00; }
+.meter:nth-child(2) .svg-circle { stroke: #FF00AA; }
+.meter:nth-child(3) .svg-circle { stroke: #AA00FF; }
+.meter:nth-child(4) .svg-circle { stroke: #00AAFF; }
+.meter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+}
+.svg-circle{
+  fill: none;
+}
+.meter-svg{
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+.circle-path{
+  stroke-width: 3;
+  stroke-dasharray: 238.7610416728;
+  stroke-dashoffset: 238.7610416728;
+  transition: all 900ms ease;
+}
+.meter span {
+  margin-top: 20px;
+}
+.circle-fill{
+  stroke-opacity: 0.3;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.number {
+  position: absolute;
+  color: #fff;
+  white-space: nowrap;
+}
+.number-int {
+  font-size: 20px;
+  font-weight: bold;
+}
