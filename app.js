@@ -20,7 +20,7 @@ var serve = http.createServer((req, res) => {
   var url = req.url
   let file = resolve('./index.html')
   if (req.url === '/') {
-    file = resolve('./index.html')
+    file = resolve('./public/index.html')
     console.log('index',file)
   }else {
     file = resolve('./' + req.url)

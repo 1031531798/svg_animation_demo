@@ -21,7 +21,6 @@ function numAnimation (display, num, className) {
   const decPoint = className === '.number-int' ? '.' : ''
   const time = transitionDuration / num
   let counter = 0
-  console.error(display)
   let increase = setInterval(() => {
     if (counter >= num) {
       clearInterval(increase)
