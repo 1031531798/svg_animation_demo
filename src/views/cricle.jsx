@@ -1,8 +1,9 @@
 import React from "react";
 
-const element = <h1>Hello, world!</h1>
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+export class SvgCircle extends React.Component {
+  render() {
+    return <div className="svg-div">
+      这是一个圆形svg动画
+    </div>;
+  }
+}

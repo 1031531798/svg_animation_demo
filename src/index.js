@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import {App} from './App'
 
-class App extends Component {
-    render() {
-        return <h1> Hello, world! </h1>
-    }
-}
 
 ReactDom.render(
     <App />,

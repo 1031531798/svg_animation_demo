@@ -1,9 +1,9 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-
-const element = <h1>Hello, world!</h1>
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+import {SvgCircle} from "./views/cricle.jsx";
+export function App() {
+  return (
+    <div>
+      <SvgCircle name="Sara" />
+    </div>
+  );
+}

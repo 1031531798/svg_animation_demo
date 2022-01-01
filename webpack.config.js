@@ -19,13 +19,27 @@ module.exports = {
   module: {
     rules: [ //配置加载器
         {
-            test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
-            use: 'babel-loader', //使用的加载器名称
+            test: /\.jsx$/, //配置要处理的文件格式，一般使用正则表达式匹配
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options:{
+                  "presets": ["@babel/preset-react", "@babel/preset-env"],
+                  "plugins": ["@babel/plugin-transform-runtime"]
+              }
+          },
         },
-      //   {
-      //     test: /\.css/,
-      //     loader: 'style-loader!css-loader'
-      // }
+        {
+          test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options:{
+                "presets": ["@babel/preset-env"],
+                "plugins": ["@babel/plugin-transform-runtime"]
+            }
+        },
+      },
     ]
 }
 }
