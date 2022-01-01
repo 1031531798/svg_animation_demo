@@ -40,6 +40,11 @@ module.exports = {
             }
         },
       },
+      {
+        test: /\.css$/, //配置要处理的文件格式，一般使用正则表达式匹配
+        exclude: /node_modules/,
+        use: ['style-loader' , 'css-loader']
+      },
     ]
-}
+  }
 }
