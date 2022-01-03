@@ -1,49 +1,15 @@
 import React from "react";
-import './cricle.css'
-export class SvgCircle extends React.Component {
+import './cricle.scss'
+import {SvgCircle} from './cricle.tsx'
+export class SvgCircleList extends React.Component {
   render() {
     return <div className="svg-div">
+      <h2 className="svg-demo-title">svg 环形进度条动画</h2>
       <div className="nav-box">
-        <div className="meter" data-note="7.59">
-          <svg width="84" height="84" className="meter-svg">
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
-          </svg>
-          <div className="number">
-            <span className="number-int">0.</span>
-            <span className="number-dec">00</span>
-          </div>
-        </div>
-        <div className="meter" data-note="6.93">
-          <svg width="84" height="84" className="meter-svg">
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
-          </svg>
-          <div className="number">
-            <span className="number-int">0.</span>
-            <span className="number-dec">00</span>
-          </div>
-        </div>
-        <div className="meter" data-note="5.38">
-          <svg width="84" height="84" className="meter-svg">
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
-          </svg>
-          <div className="number">
-            <span className="number-int">0.</span>
-            <span className="number-dec">00</span>
-          </div>
-        </div>
-        <div className="meter" data-note="9.30">
-          <svg width="84" height="84" className="meter-svg">
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
-            <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
-          </svg>
-          <div className="number">
-            <span className="number-int">0.</span>
-            <span className="number-dec">00</span>
-          </div>
-        </div>
+        <SvgCircle note="4.8"></SvgCircle>
+        <SvgCircle note="6.3"></SvgCircle>
+        <SvgCircle note="8.4"></SvgCircle>
+        <SvgCircle note="5.5"></SvgCircle>
       </div>
     </div>;
   }
