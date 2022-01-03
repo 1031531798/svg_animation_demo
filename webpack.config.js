@@ -41,9 +41,18 @@ module.exports = {
         },
       },
       {
+        test: /\.sass$/,
+        use: ["sass-loader"]
+      },
+      {
+        test: /\.scss$/, //配置要处理的文件格式，一般使用正则表达式匹配
+        exclude: /node_modules/,
+        use: ['style-loader' , 'postcss-loader', 'css-loader', 'sass-loader']
+      },
+      {
         test: /\.css$/, //配置要处理的文件格式，一般使用正则表达式匹配
         exclude: /node_modules/,
-        use: ['style-loader' , 'css-loader']
+        use: ['style-loader' , 'postcss-loader', 'css-loader']
       },
     ]
   }

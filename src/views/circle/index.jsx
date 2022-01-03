@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/cricle.css'
+import './cricle.css'
 export class SvgCircle extends React.Component {
   render() {
     return <div className="svg-div">
@@ -13,7 +13,7 @@ export class SvgCircle extends React.Component {
             <span className="number-int">0.</span>
             <span className="number-dec">00</span>
           </div>
-        </div>+
+        </div>
         <div className="meter" data-note="6.93">
           <svg width="84" height="84" className="meter-svg">
             <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>

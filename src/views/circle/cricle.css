@@ -4,16 +4,14 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: rgba(0, 0, 0, 0.5);
-  font-family: 'Nixie One', cursive;
-}
 .nav-box{
-  width: 300px;
+  width: 100%;
   padding: 10px 20px;
   position: relative;
   display: flex;
   flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Nixie One', cursive;
 }
 .meter:nth-child(1) .svg-circle { stroke: #AAFF00; }
 .meter:nth-child(2) .svg-circle { stroke: #FF00AA; }
