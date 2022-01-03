@@ -13,8 +13,10 @@ module.exports = {
       })
   ],
   devServer: {
-    host: "localhost",
     port: 9000,
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [ //配置加载器
@@ -28,6 +30,10 @@ module.exports = {
                   "plugins": ["@babel/plugin-transform-runtime"]
               }
           },
+        },
+        {
+          test: /\.tsx?$/,
+          use: ['babel-loader', 'ts-loader']
         },
         {
           test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
@@ -47,12 +53,12 @@ module.exports = {
       {
         test: /\.scss$/, //配置要处理的文件格式，一般使用正则表达式匹配
         exclude: /node_modules/,
-        use: ['style-loader' , 'postcss-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'postcss-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.css$/, //配置要处理的文件格式，一般使用正则表达式匹配
         exclude: /node_modules/,
-        use: ['style-loader' , 'postcss-loader', 'css-loader']
+        use: ['style-loader', 'postcss-loader', 'css-loader']
       },
     ]
   }
