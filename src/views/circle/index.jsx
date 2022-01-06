@@ -15,15 +15,24 @@ export class SvgCircleList extends React.Component {
       ]
     }
   }
-
+  setRandomNote () {
+    this.setState({
+      circleList: this.state.circleList.map(item => {
+        let intRandom = Math.floor(Math.random() * 10)
+        let decRandom = Math.floor(Math.random() * 100)
+        return {
+          ...item,
+          note: `${intRandom}.${decRandom}`
+        }
+      })
+    })
+  }
   clearCircleNote () {
-    console.error('232')
     this.setState((state) => ({
-      transitionDuration: 700,
       circleList: state.circleList.map(item => {
         return {
           ...item,
-          note: '0'
+          note: '0.00'
         }
       })
     }))
@@ -31,13 +40,12 @@ export class SvgCircleList extends React.Component {
   playerSvg () {
     this.clearCircleNote()
     setTimeout(() => {
-    console.log(this.state)
-
+      this.setRandomNote()
     }, 1000)
-    const displays = document.querySelectorAll('.meter');
   }
   // 挂载完成触发
   componentDidMount () {
+    console.log(this.props)
   }
   getCircle () {
     return this.state.circleList.map(item => {
@@ -48,7 +56,6 @@ export class SvgCircleList extends React.Component {
     return <div className="svg-div">
       <div className="svg-demo-row">
         <h2 className="svg-demo-title">svg 环形进度条动画</h2>
-        <span>{this.state.transitionDuration}</span>
         <BtnParticle label="点击播放" onClick={() => {this.playerSvg()}}></BtnParticle>
       </div>
       <div className="nav-box">

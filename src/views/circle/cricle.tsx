@@ -1,10 +1,8 @@
-import React from "react";
+import React, { LegacyRef } from "react";
 type CircleProps = {
   note: string,
-  transitionDuration: number
-}
-interface CircleType {
-  numberIntRef: any
+  transitionDuration: number,
+  percent: number | undefined
 }
 export class SvgCircle extends React.Component<CircleProps> {
   circlePathRef: any
@@ -13,19 +11,25 @@ export class SvgCircle extends React.Component<CircleProps> {
   constructor(props: CircleProps) {
     super(props);
     this.state = {
-      note: props.note
+      note: props.note,
+      percent: props.percent || 0
     }
     this.circlePathRef = React.createRef();
     this.numberIntRef = React.createRef();
     this.numberDecRef = React.createRef();
   }
   componentDidMount () {
-    console.error(this.numberIntRef.current)
     this.setSvgCircle()
+  }
+  componentDidUpdate(props: CircleProps) {
+    setTimeout(() => {
+      this.setSvgCircle()
+    }, 100)
   }
   // 设置svg circle动画
   setSvgCircle () {
-    const circlePath = this.circlePathRef.current
+    const circlePath:any = this.circlePathRef.current
+    if (circlePath) {
       const radius = circlePath.r.baseVal.value
       const circumference = 2 * Math.PI * radius
       const num = 1 - (Number(this.props.note) / 10)
@@ -33,6 +37,7 @@ export class SvgCircle extends React.Component<CircleProps> {
       this.numAnimation(Number(this.props.note.split('.')[1]), this.numberDecRef.current)
       circlePath.style.setProperty('stroke-dashoffset', circumference)
       setTimeout(() => circlePath.style.strokeDashoffset = circumference * num, 200);
+    }
   }
   // 设置数字动画
   numAnimation (num: number, ref: any) {
@@ -50,7 +55,7 @@ export class SvgCircle extends React.Component<CircleProps> {
     return (
       <div className="meter" data-note={this.props.note}>
         <svg width="84" height="84" className="meter-svg">
-          <circle ref={this.circlePathRef} cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
+          <circle ref={this.circlePathRef} cx="41" cy="41" r="38" style={strokeDashoffset: this.state.percent} className={['svg-circle', 'circle-path'].join(' ')}></circle>
           <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
         </svg>
         <div className="number">
