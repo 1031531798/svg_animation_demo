@@ -51,11 +51,11 @@ export class SvgCircle extends React.Component<CircleProps> {
       counter++
     }, time)
   }
-  render(): React.ReactNode {
+  render() {
     return (
       <div className="meter" data-note={this.props.note}>
         <svg width="84" height="84" className="meter-svg">
-          <circle ref={this.circlePathRef} cx="41" cy="41" r="38" style={strokeDashoffset: this.state.percent} className={['svg-circle', 'circle-path'].join(' ')}></circle>
+          <circle ref={this.circlePathRef} cx="41" cy="41" r="38" className={['svg-circle', 'circle-path'].join(' ')}></circle>
           <circle cx="41" cy="41" r="38" className={['svg-circle', 'circle-fill'].join(' ')}></circle>
         </svg>
         <div className="number">
