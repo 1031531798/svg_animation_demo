@@ -41,7 +41,6 @@ export class SvgCircleList extends React.Component {
   playerSvg () {
     this.clearCircleNote()
     // 添加防抖
-    
     if (this.startTime) {
       clearTimeout(this.startTime)
     }

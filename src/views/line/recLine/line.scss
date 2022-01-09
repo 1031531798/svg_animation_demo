@@ -1,10 +1,17 @@
 body{
   font-size:10px;
 }
-
-.container{
-  width: 100%;    
+.svg-line-demo{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  svg {
+    margin-left: 40px;
+  }
 }
+
 .line-wrap{
   width:300px;
   margin:0 auto;
