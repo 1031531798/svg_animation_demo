@@ -8,12 +8,14 @@ export class SvgCircle extends React.Component<CircleProps> {
   circlePathRef: any
   numberIntRef: any
   numberDecRef: any
+  startTime: NodeJS.Timeout | undefined
   constructor(props: CircleProps) {
     super(props);
     this.state = {
       note: props.note,
       percent: props.percent || 0
     }
+    this.startTime = undefined
     this.circlePathRef = React.createRef();
     this.numberIntRef = React.createRef();
     this.numberDecRef = React.createRef();
@@ -21,10 +23,11 @@ export class SvgCircle extends React.Component<CircleProps> {
   componentDidMount () {
     this.setSvgCircle()
   }
-  componentDidUpdate(props: CircleProps) {
-    setTimeout(() => {
+  componentDidUpdate() {
+    this.startTime = setTimeout(() => {
       this.setSvgCircle()
     }, 100)
+    
   }
   // 设置svg circle动画
   setSvgCircle () {

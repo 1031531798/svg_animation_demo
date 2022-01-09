@@ -14,6 +14,7 @@ export class SvgCircleList extends React.Component {
         {name: 'circle4', note: '5.5'}
       ]
     }
+    this.startTime = undefined
   }
   setRandomNote () {
     this.setState({
@@ -39,9 +40,15 @@ export class SvgCircleList extends React.Component {
   }
   playerSvg () {
     this.clearCircleNote()
-    setTimeout(() => {
+    // 添加防抖
+    
+    if (this.startTime) {
+      clearTimeout(this.startTime)
+    }
+    this.startTime = setTimeout(() => {
       this.setRandomNote()
     }, 1000)
+    
   }
   // 挂载完成触发
   componentDidMount () {
