@@ -1,0 +1,51 @@
+body{
+  font-size:10px;
+}
+.svg-line-demo{
+  position: relative;
+}
+
+.move-point{
+  display: flex;
+  height: 150px;
+  width: 100%;
+  .ball { 
+    position: absolute;
+    margin-left: 40px;
+    width: 10px; 
+    height: 10px; 
+    background-color: red;
+    border-radius: 50%;
+    offset-path: path('M10 80 Q 77.5 10, 145 80 T 280 80'); 
+    offset-distance: 0%;
+    animation: red-ball 2s linear alternate infinite; 
+  }
+  svg{
+  }
+}
+.live-svg{
+}
+@keyframes red-ball { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+$i: 3;
+$j: 0.7s;
+@while $i > 0 {
+  .line-#{$i} { 
+    animation: lineWave 1s linear $j infinite;
+    transform-origin: 4px 12px;
+   }
+  $i: $i - 1;
+  $j: $j + 0.2
+}
+@keyframes lineWave {
+  0% {
+    transform: scaleY(0);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}

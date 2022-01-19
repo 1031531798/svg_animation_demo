@@ -5,7 +5,7 @@
   "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack-dev-server  --mode development --open"
+    "serve": "webpack-dev-server  --mode development"
   },
   "author": "",
   "license": "ISC",
@@ -23,12 +23,14 @@
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "vivus": "^0.4.6"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/vivus": "^0.4.4",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "babel-cli": "^6.26.0",
